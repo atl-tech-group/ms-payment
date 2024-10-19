@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/paymentdb
+    username: pass
+    password: 1212
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false # DB ile ish bitdikde session baglanir
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 9097
+  servlet:
+    session:
+      timeout: 30
+
