@@ -1,9 +1,9 @@
 package com.mspayment.entity;
 
 import com.mspayment.enums.PaymentMethod;
+import com.mspayment.enums.PaymentStatus;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,6 +13,9 @@ import java.util.Set;
 @Table(name = "payments")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payment {
 
     @Id
@@ -20,6 +23,7 @@ public class Payment {
     private Long id;
 
     private String bookingId;
+    private String userId;
     private BigDecimal amount;
     private LocalDate paymentDate;
 
@@ -27,4 +31,7 @@ public class Payment {
     @CollectionTable(name = "payment_methods", joinColumns = @JoinColumn(name = "payment_id"))
     @Enumerated(value = EnumType.STRING)
     private Set<PaymentMethod> paymentMethod;
+
+    @Enumerated(value = EnumType.STRING)
+    private PaymentStatus paymentStatus;
 }

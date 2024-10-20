@@ -33,6 +33,9 @@ dependencies {
     //postgres
     runtimeOnly 'org.postgresql:postgresql'
 
+    // Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+
     //lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
